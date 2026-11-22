@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSEFIT | Fitness Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 class="logo">PULSE<span>FIT.</span></h2>
+
+    <p class="menu-title">MAIN MENU</p>
+    <a href="#dashboard" class="active">▦ Dashboard</a>
+    <a href="#members">♙ Members</a>
+    <a href="#membership">▣ Memberships</a>
+    <a href="#trainers">♟ Trainers</a>
+    <a href="#classes">▤ Class Schedule</a>
+    <a href="#workouts">♥ Workout Programs</a>
+    <a href="#attendance">◷ Attendance</a>
+
+    <div class="sidebar-bottom">
+        <p>FITNESS MANAGEMENT</p>
+        <h3>Train Hard. Stay Strong.</h3>
+    </div>
+</div>
+
+<main class="main">
+
+<header>
+    <div>
+        <h1>Fitness Dashboard</h1>
+        <p>Welcome to PULSEFIT Management System</p>
+    </div>
+    <div class="header-right">
+        <span id="currentDate"></span>
+        <button onclick="window.print()" class="print-btn">Print Report</button>
+    </div>
+</header>
+
+<section id="dashboard">
+    <div class="welcome">
+        <div>
+            <p>WELCOME TO PULSEFIT</p>
+            <h2>Build Strength.<br>Build Your Future.</h2>
+            <p>Manage your fitness center in one place.</p>
+        </div>
+        <div class="welcome-icon">🏋️</div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <p>Total Members</p>
+            <h2 id="totalMembers">120</h2>
+            <span>Registered members</span>
+        </div>
+        <div class="stat-card">
+            <p>Active Trainers</p>
+            <h2 id="totalTrainers">12</h2>
+            <span>Professional trainers</span>
+        </div>
+        <div class="stat-card">
+            <p>Today's Attendance</p>
+            <h2 id="totalAttendance">0</h2>
+            <span>Members present</span>
+        </div>
+        <div class="stat-card">
+            <p>Monthly Revenue</p>
+            <h2 id="totalRevenue">₹0</h2>
+            <span>Membership revenue</span>
+        </div>
+    </div>
+</section>
+
+<section id="members" class="section">
+    <div class="section-heading">
+        <div>
+            <h2>Member Profiles</h2>
+            <p>Manage registered gym members</p>
+        </div>
+       <button onclick="openMemberForm()">
+    + Add Member
+</button>
+    </div>
+
+    <div class="toolbar">
+        <input type="text" id="memberSearch" placeholder="Search members...">
+        <select id="memberFilter">
+            <option value="all">All Members</option>
+            <option value="Active">Active</option>
+            <option value="Expired">Expired</option>
+        </select>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Member ID</th>
+                    <th>Plan</th>
+                    <th>Joining Date</th>
+                    <th>Cost</th>
+                    <th>Status</th>
+                    <th>Favorite</th>
+                </tr>
+            </thead>
+            <tbody id="memberTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<section id="membership" class="section">
+    <div class="section-heading">
+        <div>
+            <h2>Membership Plans</h2>
+            <p>Choose the right fitness membership</p>
+        </div>
+    </div>
+
+    <div class="plans">
+        <div class="plan-card">
+            <h3>Basic Plan</h3>
+            <h2>₹999 <small>/month</small></h2>
+            <p>✔ Gym Access</p>
+            <p>✔ Basic Equipment</p>
+            <p>✔ General Guidance</p>
+            <button onclick="selectPlan('Basic',999)">
+    Select Plan
+</button>
+        </div>
+
+        <div class="plan-card featured">
+            <span class="popular">POPULAR</span>
+            <h3>Premium Plan</h3>
+            <h2>₹1,999 <small>/month</small></h2>
+            <p>✔ Full Gym Access</p>
+            <p>✔ Personal Training</p>
+            <p>✔ Workout Programs</p>
+        <button onclick="selectPlan('Premium',1999)">
+    Select Plan
+</button>
+        </div>
+
+        <div class="plan-card">
+            <h3>Elite Plan</h3>
+            <h2>₹2,999 <small>/month</small></h2>
+            <p>✔ All Premium Benefits</p>
+            <p>✔ Diet Consultation</p>
+            <p>✔ Special Classes</p>
+            <button onclick="selectPlan('Elite',2999)">
+    Select Plan
+</button>
+        </div>
+    </div>
+</section>
+
+<section id="trainers" class="section">
+    <div class="section-heading">
+        <div>
+            <h2>Trainer Allocation</h2>
+            <p>Our professional fitness trainers</p>
+        </div>
+    </div>
+
+    <div class="trainer-grid">
+        <div class="trainer-card">
+            <div class="trainer-avatar">💪</div>
+            <h3>Arjun Kumar</h3>
+            <p>Strength Training</p>
+            <span>Experience: 5 Years</span>
+        </div>
+        <div class="trainer-card">
+            <div class="trainer-avatar">🏋️</div>
+            <h3>Rahul Sharma</h3>
+            <p>Body Fitness</p>
+            <span>Experience: 4 Years</span>
+        </div>
+        <div class="trainer-card">
+            <div class="trainer-avatar">🧘</div>
+            <h3>Priya Reddy</h3>
+            <p>Yoga & Flexibility</p>
+            <span>Experience: 3 Years</span>
+        </div>
+    </div>
+
+    <div class="allocation">
+        <h3>Allocate Trainer</h3>
+        <select id="allocateMember">
+            <option value="">Select Member</option>
+        </select>
+        <select id="allocateTrainer">
+            <option value="">Select Trainer</option>
+            <option>Arjun Kumar</option>
+            <option>Rahul Sharma</option>
+            <option>Priya Reddy</option>
+        </select>
+        <button onclick="allocateTrainer()">Assign Trainer</button>
+        <p id="allocationResult"></p>
+    </div>
+</section>
+
+<section id="classes" class="section">
+    <div class="section-heading">
+        <div>
+            <h2>Class Schedule</h2>
+            <p>Upcoming fitness classes and timings</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Trainer</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="classTable">
+                <tr>
+                    <td>Yoga</td>
+                    <td>Priya Reddy</td>
+                    <td>Monday</td>
+                    <td>6:00 AM</td>
+                    <td><button onclick="joinClass(this)">Join</button></td>
+                </tr>
+                <tr>
+                    <td>Strength Training</td>
+                    <td>Arjun Kumar</td>
+                    <td>Tuesday</td>
+                    <td>7:00 AM</td>
+                    <td><button onclick="joinClass(this)">Join</button></td>
+                </tr>
+                <tr>
+                    <td>Cardio</td>
+                    <td>Rahul Sharma</td>
+                    <td>Wednesday</td>
+                    <td>5:00 PM</td>
+                    <td><button onclick="joinClass(this)">Join</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="workouts" class="section">
+    <div class="section-heading">
+        <div>
+            <h2>Workout Programs</h2>
+            <p>Fitness programs for different goals</p>
+        </div>
+    </div>
+
+    <div class="workout-grid">
+        <div class="workout-card">
+            <h3>💪 Strength Training</h3>
+            <p>Build strength with guided resistance exercises.</p>
+            <button onclick="favorite(this)">♡ Save</button>
+        </div>
+        <div class="workout-card">
+            <h3>🏃 Cardio Fitness</h3>
+            <p>Improve endurance with cardio-based activities.</p>
+            <button onclick="favorite(this)">♡ Save</button>
+        </div>
+        <div class="workout-card">
+            <h3>🧘 Yoga Program</h3>
+            <p>Improve flexibility, balance and relaxation.</p>
+            <button onclick="favorite(this)">♡ Save</button>
+        </div>
+    </div>
+</section>
+
+<section id="attendance" class="section">
+    <div class="section-heading">
+        <div>
+            <h2>Attendance Management</h2>
+            <p>Record daily member attendance</p>
+        </div>
+    </div>
+
+    <div class="attendance-box">
+        <h3>Mark Attendance</h3>
+        <select id="attendanceMember">
+            <option value="">Select Member</option>
+        </select>
+        <button onclick="markAttendance()">Mark Present</button>
+        <p id="attendanceMessage"></p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Member Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<!-- MEMBER REGISTRATION POPUP -->
+
+<div class="modal" id="memberModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <div>
+                <h2>Join PULSEFIT</h2>
+                <p>Enter your details to become a member</p>
+            </div>
+
+            <button type="button" class="close-btn"
+                onclick="closeMemberForm()">×</button>
+        </div>
+
+        <form id="memberForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="memberName"
+                        placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="memberPhone"
+                        placeholder="Enter phone number"
+                        pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="memberEmail"
+                        placeholder="Enter email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="memberAge"
+                        placeholder="Enter age" min="13" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Membership Plan</label>
+                    <select id="memberPlan" onchange="updatePlanCost()" required>
+                        <option value="">Select Plan</option>
+                        <option value="Basic">Basic Plan</option>
+                        <option value="Premium">Premium Plan</option>
+                        <option value="Elite">Elite Plan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Joining Date</label>
+                    <input type="date" id="joiningDate" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Membership Duration</label>
+                    <select id="memberDuration" onchange="updatePlanCost()">
+                        <option value="1">1 Month</option>
+                        <option value="3">3 Months</option>
+                        <option value="6">6 Months</option>
+                        <option value="12">12 Months</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="cost-box">
+                <div>
+                    <p>Membership Total Cost</p>
+                    <h2 id="formCost">₹0</h2>
+                </div>
+                <span>INR</span>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn"
+                    onclick="closeMemberForm()">Cancel</button>
+
+                <button type="submit" class="submit-btn">
+                    Register Member
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<footer>
+    <h2>PULSEFIT.</h2>
+    <p>Fitness Center Membership Management System</p>
+    <p>© 2026 PULSEFIT. All Rights Reserved.</p>
+    <button onclick="shareWebsite()">Share Website</button>
+</footer>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
